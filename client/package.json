@@ -1,0 +1,31 @@
+{
+  "name": "vue3_cli_default",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "npx pbjs -t static-module -o message.js -w es6 message.proto && vite",
+    "build": "npx pbjs -t static-module -o message.js -w es6 message.proto && vite build",
+    "serve": "vite preview",
+    "deploy": "vk-miniapps-deploy"
+  },
+  "dependencies": {
+    "@pixi/canvas-display": "^7.2.4",
+    "@pixi/canvas-graphics": "^7.2.4",
+    "@pixi/canvas-particle-container": "^7.2.4",
+    "@pixi/particle-emitter": "^5.0.8",
+    "@tweenjs/tween.js": "^21.0.0",
+    "@vkontakte/vk-bridge": "^2.8.3",
+    "@vkontakte/vk-miniapps-deploy": "^0.1.5",
+    "pixi-tween": "^0.2.0",
+    "pixi.js": "^7.2.4",
+    "pixi.js-legacy": "^7.2.4",
+    "protobufjs": "^7.2.3",
+    "protobufjs-cli": "^1.1.1",
+    "vue": "^3.2.8",
+    "vuetify": "^3.2.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.6.0",
+    "@vue/compiler-sfc": "^3.2.6",
+    "vite": "^2.5.2"
+  }
+}

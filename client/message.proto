@@ -1,0 +1,106 @@
+
+syntax = "proto3";
+
+message Position {
+    float x = 1;
+    float y = 2;
+}
+
+message Tiles {
+    int32 width = 1;
+    int32 height = 2;
+}
+
+message Map {
+    float tileSize = 1;
+    Tiles tiles = 2;
+    required int32 time = 3;
+    int32 maxTime = 4;
+    float scale = 5;
+}
+
+message Inventory {
+    int32 gold = 1;
+    int32 stone = 2;
+    int32 wood = 3;
+}
+
+message Weapon {
+    required int32 id = 1;
+    required int32 damage = 2;
+    required int32 mine = 3;
+    required int32 level = 4;
+    required string code = 5;
+    required int32 upgradeCost = 6;
+    required int32 maxLevel = 7;
+}
+
+message Timer {
+    int32 id = 1;
+    int32 waves = 2;
+    int32 wavesPassed = 3;
+    bool inUse = 4;
+    int32 cd = 5;
+    int32 gold = 6;
+}
+
+message Entity {
+    Position position = 1;
+    Position angle = 7;
+    required int32 id = 2;
+    int32 ownerId = 10;
+    int32 level = 11;
+    string name = 3;
+    int32 wave = 4;
+    int32 type = 5;
+    int32 bType = 8;
+    int32 pType = 14;
+    bool self = 6;
+    bool removed = 9;
+    bool isAttack = 16;
+	int32 health = 12;
+	int32 maxHealth = 13;
+    float radius = 15;
+    int32 weapon = 17;
+    Inventory inventory = 18;
+    int32 damageBy = 19;
+    int32 style = 20;
+    repeated Weapon weapons = 21;
+    repeated Timer timers = 22;
+    int32 track = 23;
+    int32 hat = 24;
+}
+
+message Group {
+
+}
+
+message ServerMessage {
+    repeated Entity entities = 1;
+    Map map = 3;
+}
+
+
+
+
+message Direction {
+    required float x = 1;
+    required float y = 2;
+}
+
+message Build {
+    required int32 id = 1;
+    required Direction position = 2;
+}
+
+message ClientMessage {
+    Direction direction = 1;
+    Build build = 3;
+    string message = 2;
+    int32 upgradeBuilding = 4;
+    int32 upgradeWeapon = 9;
+    int32 sellBuilding = 8;
+    int32 buyTimer = 10;
+	bool attack = 5;
+    int32 weapon = 7;
+}
